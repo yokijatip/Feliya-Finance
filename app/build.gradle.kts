@@ -57,6 +57,9 @@ dependencies {
 //    Chip Navigation button
     implementation (libs.chip.navigation.bar)
 
+//    Rounded Image
+    implementation (libs.circleimageview)
+
 
 
 

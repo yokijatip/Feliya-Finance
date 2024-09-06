@@ -1,11 +1,11 @@
 Untuk aplikasi keuangan perusahaan layanan AC, di mana kamu mengelola proyek pemasangan AC, pemasukan, pengeluaran, dan laporan bulanan/tahunan, struktur data **Firestore** harus dirancang agar dapat mendukung semua fitur tersebut dengan efisien dan mudah dipahami. Berikut adalah struktur data yang bisa kamu gunakan untuk aplikasi ini:
 
-### Struktur Data Firestore
-Firestore memiliki dua komponen utama: **koleksi (collections)** dan **dokumen (documents)**. Setiap dokumen bisa berisi data dan **sub-koleksi** untuk mendukung relasi data yang lebih kompleks. 
+Struktur Data Firestore
+Firestore memiliki dua komponen utama: koleksi (collections) dan dokumen (documents). Setiap dokumen bisa berisi data dan sub-koleksi untuk mendukung relasi data yang lebih kompleks. 
 
 Berikut adalah struktur data Firestore yang dioptimalkan untuk aplikasi pengelolaan keuangan perusahaan layanan AC:
 
-```plaintext
+```
 projects (collection)            <-- Kumpulan proyek pemasangan AC
    projectId (document)          <-- Setiap proyek pemasangan AC
       - name: "Mall ABC AC Installation"
@@ -41,23 +41,23 @@ reports (collection)             <-- Kumpulan laporan keuangan
       - balance: 5000            <-- Saldo bulan tersebut (pemasukan - pengeluaran)
 ```
 
-### Penjelasan Struktur Data
+Penjelasan Struktur Data
 
-#### 1. **Koleksi `projects`**
+1. Koleksi `projects`
    - Koleksi ini menyimpan data setiap proyek pemasangan AC yang dilakukan oleh perusahaan.
-   - **Dokumen `projectId`** menyimpan informasi terkait satu proyek pemasangan AC tertentu, seperti:
-     - **Nama proyek** (`name`) dan **klien** (`client`).
-     - **Tanggal mulai dan selesai** proyek (`startDate`, `endDate`).
-     - **Status** proyek (`status`): bisa berupa "ongoing" (sedang berjalan) atau "completed" (selesai).
-     - **Total pemasukan** (`totalIncome`) dan **total pengeluaran** (`totalExpenses`), yang bisa dihitung berdasarkan transaksi yang terkait dengan proyek tersebut.
-     - **Sub-koleksi `transactions`** menyimpan semua transaksi yang terkait dengan proyek tersebut.
+   - Dokumen `projectId`** menyimpan informasi terkait satu proyek pemasangan AC tertentu, seperti:
+     - Nama proyek (`name`) dan klien (`client`).
+     - Tanggal mulai dan selesai proyek (`startDate`, `endDate`).
+     - Status proyek (`status`): bisa berupa "ongoing" (sedang berjalan) atau "completed" (selesai).
+     - Total pemasukan (`totalIncome`) dan total pengeluaran** (`totalExpenses`), yang bisa dihitung berdasarkan transaksi yang terkait dengan proyek tersebut.
+     - Sub-koleksi `transactions` menyimpan semua transaksi yang terkait dengan proyek tersebut.
 
-#### 2. **Sub-koleksi `transactions`**
+2. Sub-koleksi `transactions`
    - Setiap proyek memiliki sub-koleksi `transactions`, yang menyimpan data transaksi yang berhubungan dengan proyek tersebut, baik pemasukan (`income`) maupun pengeluaran (`expense`).
-   - **Dokumen `transactionId`** menyimpan rincian setiap transaksi:
-     - **Jenis transaksi** (`type`): Bisa berupa "income" (pemasukan) atau "expense" (pengeluaran).
-     - **Jumlah uang** (`amount`), **kategori** (`category`), dan **deskripsi** transaksi.
-     - **Tanggal transaksi** (`date`), yang bisa digunakan untuk pelaporan bulanan/tahunan.
+   - Dokumen `transactionId` menyimpan rincian setiap transaksi:
+     - Jenis transaksi (`type`): Bisa berupa "income" (pemasukan) atau "expense" (pengeluaran).
+     - Jumlah uang (`amount`), kategori (`category`), dan deskripsi transaksi.
+     - Tanggal transaksi (`date`), yang bisa digunakan untuk pelaporan bulanan/tahunan.
    
    Contoh sub-koleksi untuk satu proyek:
    
@@ -77,21 +77,21 @@ reports (collection)             <-- Kumpulan laporan keuangan
          - description: "Purchase of AC equipment"
    ```
 
-#### 3. **Koleksi `users`**
+3. Koleksi `users`
    - Koleksi ini menyimpan informasi tentang pengguna aplikasi, baik itu admin, manajer, atau pengguna lain yang mungkin memiliki peran di perusahaan.
    - **Dokumen `userId`** berisi data pribadi pengguna, seperti nama, email, role, dan informasi kontak.
    - Setiap pengguna memiliki **role** yang menentukan hak akses mereka (misalnya, admin bisa melihat semua transaksi, sedangkan manajer hanya melihat proyek yang mereka kelola).
 
-#### 4. **Koleksi `reports`**
-   - Koleksi `reports` menyimpan data **laporan bulanan dan tahunan**.
+4. Koleksi `reports`
+   - Koleksi `reports` menyimpan data **laporan bulanan dan tahunan.
    - Setiap dokumen di koleksi ini adalah satu laporan bulanan/tahunan, yang berisi:
-     - **Bulan** dan **tahun** laporan.
-     - **Total pemasukan** (`totalIncome`) dan **pengeluaran** (`totalExpenses`) pada bulan tersebut.
-     - **Saldo akhir** bulan tersebut (`balance`), yang merupakan selisih dari pemasukan dan pengeluaran.
+     - Bulan dan tahun laporan.
+     - Total pemasukan (`totalIncome`) dan **pengeluaran** (`totalExpenses`) pada bulan tersebut.
+     - **Saldo akhir bulan tersebut (`balance`), yang merupakan selisih dari pemasukan dan pengeluaran.
    - Laporan ini bisa di-generate secara otomatis setiap bulan berdasarkan data transaksi yang tersimpan di setiap proyek.
 
-#### Contoh Dokumen Laporan:
-```plaintext
+Contoh Dokumen Laporan:
+```
 reports
    reportId1
       - month: "01"
@@ -101,12 +101,12 @@ reports
       - balance: 8000
 ```
 
-### 5. **Keamanan dan Aturan Akses (Security Rules)**
+5. Keamanan dan Aturan Akses (Security Rules)
    Dalam aplikasi keuangan ini, sangat penting untuk mengatur keamanan akses data. Firebase Firestore menyediakan **security rules** yang memungkinkan kamu mengontrol siapa yang dapat membaca dan menulis data.
 
-   Contoh **security rules** untuk membatasi akses berdasarkan **role pengguna**:
+   Contoh security rules** untuk membatasi akses berdasarkan role pengguna:
 
-   ```plaintext
+   ```
    service cloud.firestore {
      match /databases/{database}/documents {
        
@@ -126,15 +126,13 @@ reports
    }
    ```
 
-   - **Admin** bisa mengakses dan mengelola semua proyek, transaksi, dan laporan.
-   - **Manager** hanya bisa melihat proyek dan transaksi yang mereka tangani.
+   - Admin bisa mengakses dan mengelola semua proyek, transaksi, dan laporan.
+   - Manager hanya bisa melihat proyek dan transaksi yang mereka tangani.
    - Pengguna hanya bisa melihat data mereka sendiri di koleksi `users`.
 
-### Kesimpulan
+Kesimpulan
 Dengan struktur data ini, kamu akan memiliki:
 - **Manajemen proyek** dengan sub-koleksi transaksi yang terkait dengan pemasukan dan pengeluaran setiap proyek.
 - **Laporan bulanan dan tahunan** yang bisa di-generate otomatis berdasarkan data transaksi.
 - **Pengelolaan pengguna** untuk mengatur siapa yang bisa mengakses data.
 - Kemampuan untuk melakukan **query** yang kuat, seperti mendapatkan laporan transaksi berdasarkan bulan/tahun, memfilter transaksi, dan menghitung total pemasukan/pengeluaran.
-
-Apakah ada bagian lain yang ingin kamu diskusikan lebih dalam, seperti implementasi fitur spesifik atau aturan keamanan?

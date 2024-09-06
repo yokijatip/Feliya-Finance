@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/home"
-        android:enabled="true"
         android:icon="@drawable/ic_home"
         android:title="@string/home"
         app:cnb_backgroundColor="@color/colorPrimary"
@@ -13,7 +12,6 @@
 
     <item
         android:id="@+id/report"
-        android:enabled="true"
         android:icon="@drawable/ic_report"
         android:title="@string/report"
         app:cnb_backgroundColor="@color/colorPrimary"
@@ -23,7 +21,6 @@
 
     <item
         android:id="@+id/settings"
-        android:enabled="true"
         android:icon="@drawable/ic_settings"
         android:title="@string/settings"
         app:cnb_backgroundColor="@color/colorPrimary"
