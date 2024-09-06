@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "950447890255",
+    "project_id": "feliya-finance",
+    "storage_bucket": "feliya-finance.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:950447890255:android:7db22cb20dda9030a46f3a",
+        "android_client_info": {
+          "package_name": "com.gity.hq"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5DMGEUMWPLASoHqdi3wQU-XEOxAWeqxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

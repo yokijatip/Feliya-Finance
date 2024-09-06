@@ -1,0 +1,35 @@
+Struktur Data FireStore
+
+projects (collection)            <-- Kumpulan proyek pemasangan AC
+   projectId (document)          <-- Setiap proyek pemasangan AC
+      - name: "Mall ABC AC Installation"
+      - client: "Mall ABC"       <-- Nama klien (supermarket/mall)
+      - startDate: "2024-01-01"
+      - endDate: "2024-01-31"
+      - status: "completed"      <-- Status proyek: ongoing/completed
+      - totalIncome: 10000       <-- Total uang masuk (otomatis dihitung)
+      - totalExpenses: 5000      <-- Total uang keluar (otomatis dihitung)
+      - description: "Instalasi AC di Mall ABC"
+      transactions (sub-collection) <-- Transaksi terkait proyek ini
+         transactionId (document)   <-- Setiap transaksi pemasukan/pengeluaran
+            - type: "income" (or "expense")   <-- Jenis transaksi (pemasukan/pengeluaran)
+            - amount: 2000                    <-- Jumlah uang transaksi
+            - category: "Payment"             <-- Kategori transaksi (misal: pembayaran, biaya operasional)
+            - date: "2024-01-05"              <-- Tanggal transaksi
+            - description: "Initial payment for Mall ABC AC installation"
+
+users (collection)               <-- Kumpulan pengguna aplikasi
+   userId (document)             <-- Setiap pengguna
+      - name: "John Doe"
+      - email: "john.doe@example.com"
+      - role: "admin" (or "manager") <-- Role pengguna (misal: admin atau manajer)
+      - phone: "123456789"
+      - createdAt: "2024-01-01"
+
+reports (collection)             <-- Kumpulan laporan keuangan
+   reportId (document)           <-- Setiap laporan
+      - month: "01"              <-- Bulan laporan
+      - year: "2024"             <-- Tahun laporan
+      - totalIncome: 10000       <-- Total pemasukan bulan tersebut
+      - totalExpenses: 5000      <-- Total pengeluaran bulan tersebut
+      - balance: 5000            <-- Saldo bulan tersebut (pemasukan - pengeluaran)
