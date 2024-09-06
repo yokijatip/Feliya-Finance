@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </ScrollView>
-
-
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -27,6 +16,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline_top">
 
         <ImageView
+            android:transitionName="logo"
             android:layout_width="80dp"
             android:layout_height="32dp"
             android:layout_gravity="center"

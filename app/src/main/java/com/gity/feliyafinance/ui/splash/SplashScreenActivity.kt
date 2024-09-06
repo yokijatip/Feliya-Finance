@@ -6,11 +6,18 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.gity.feliyafinance.R
 import com.gity.feliyafinance.databinding.ActivitySplashScreenBinding
+import com.gity.feliyafinance.ui.auth.AuthActivity
+import com.gity.feliyafinance.ui.auth.register.RegisterFragment
 import com.gity.feliyafinance.ui.main.MainActivity
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
@@ -27,12 +34,22 @@ class SplashScreenActivity : AppCompatActivity() {
             insets
         }
 
-        Handler.createAsync(mainLooper).postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+        lifecycleScope.launch {
+            delay(2000)
+            val intent = Intent(this@SplashScreenActivity, AuthActivity::class.java)
+            val optionsCompat: ActivityOptionsCompat =
+                ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    this@SplashScreenActivity,
+                    binding.splashImage,
+                    "logo"
+                )
+            startActivity(intent, optionsCompat.toBundle())
             finish()
-        }, 3000)
+        }
+
 
 
     }
+
+
 }

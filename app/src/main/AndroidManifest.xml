@@ -15,7 +15,7 @@
         android:theme="@style/Theme.FeliyaFinance"
         tools:targetApi="31">
         <activity
-            android:name=".ui.splash.SplashScreenActivity"
+            android:name=".ui.auth.AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,17 +24,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".ui.splash.SplashScreenActivity"
             android:exported="false"/>
-
-        <!--  Masukkan ini jika activty ingin pertama kali dijalankan  -->
-        <!--
-        <intent-filter>
-                        <action android:name="android.intent.action.MAIN" />
-
-                        <category android:name="android.intent.category.LAUNCHER" />
-                    </intent-filter>
-            -->
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
