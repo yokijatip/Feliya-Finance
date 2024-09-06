@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.gity.feliyafinance" />
+                  <option name="mobileSdkAppId" value="1:909980271505:android:ee9bacc3d597f7ac725030" />
+                  <option name="projectId" value="feliya-finance-gity" />
+                  <option name="projectNumber" value="909980271505" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

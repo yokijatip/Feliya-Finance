@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Feliya Finance</string>
+
+    <!--  Bottom Navigation Bar Menu  -->
+    <string name="home">Home</string>
+    <string name="report">Report</string>
+    <string name="settings">Settings</string>
+
 </resources>
