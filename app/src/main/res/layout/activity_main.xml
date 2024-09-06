@@ -5,13 +5,23 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.main.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/chipNavigationBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
-        android:layout_width="match_parent"
+        android:id="@+id/chipNavigationBar"
+        android:layout_width="0dp"
         android:layout_height="74dp"
-        android:gravity="center"
         android:elevation="16dp"
+        android:gravity="center"
         android:padding="8dp"
         app:cnb_menuResource="@menu/bottom_navigation_menu"
         app:layout_constraintBottom_toBottomOf="parent"
