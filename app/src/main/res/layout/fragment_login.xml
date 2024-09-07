@@ -73,9 +73,11 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_password"
+                android:paddingEnd="42dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                tools:ignore="RtlSymmetry" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
