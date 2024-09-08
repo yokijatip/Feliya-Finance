@@ -2,6 +2,10 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("com.google.gms.google-services")
+
+    id("com.google.devtools.ksp")
+    id("kotlin-parcelize")
+
 }
 
 android {
@@ -60,8 +64,16 @@ dependencies {
 //    Rounded Image
     implementation (libs.circleimageview)
 
+//    Room Database
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.room.compiler)
+    val roomVersion = "2.5.2"
+    implementation (libs.androidx.room.ktx)
 
-
+//    DataStore
+    implementation (libs.androidx.datastore.preferences)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

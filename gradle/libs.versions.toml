@@ -2,6 +2,7 @@
 agp = "8.5.2"
 chipNavigationBar = "1.4.0"
 circleimageview = "3.1.0"
+datastorePreferences = "1.1.1"
 firebaseBom = "33.2.0"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
@@ -12,9 +13,18 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.1"
 constraintlayout = "2.1.4"
+# Room Env
+lifecycleLivedataKtx = "2.6.2"
+lifecycleViewmodelKtx = "2.6.2"
+roomCompiler = "2.5.2"
+roomRuntime = "2.5.2"
+roomVersion = "2.5.2"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
 chip-navigation-bar = { module = "com.github.ismaeldivita:chip-navigation-bar", version.ref = "chipNavigationBar" }
 circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circleimageview" }
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
@@ -26,6 +36,12 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+
+# Room Env
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
+lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
