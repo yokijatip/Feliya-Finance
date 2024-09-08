@@ -12,6 +12,9 @@
     <string name="confirmation_dialog_title_confirm">Yes, i\'m sure</string>
     <string name="confirmation_dialog_title_cancel">Cancel</string>
 
+    <!--  Other  -->
+    <string name="see_all">see all</string>
+
 
     <!--  Auth Activity  -->
     <string name="login">Login</string>
@@ -42,5 +45,19 @@
     <string name="setting_feedback">Feedback</string>
     <string name="setting_notification">Notification</string>
     <string name="setting_logout_confirmation">Are you sure you want to logout?</string>
+
+    <!--  Fragment Home  -->
+    <string name="main_balance_title">Your balance is</string>
+    <string name="rp">Rp</string>
+    <string name="main_income">Income</string>
+    <string name="main_expense">Expense</string>
+    <string name="contracts">Contracts</string>
+    <string name="transactions">Transactions</string>
+    <string name="you_work_with">you work with</string>
+    <string name="status_contract_active">Active</string>
+    <string name="status_contract_inactive">Inactive</string>
+    <string name="status_contract_ongoing">On going</string>
+    <string name="status_contract_finish">Finish</string>
+
 
 </resources>

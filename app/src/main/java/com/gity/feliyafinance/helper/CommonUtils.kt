@@ -8,6 +8,7 @@ import android.view.Window
 import android.widget.TextView
 import android.widget.Toast
 import com.gity.feliyafinance.R
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -44,6 +45,33 @@ object CommonUtils {
         }
         dialog.show()
 
+    }
+
+    fun formatToCurrency(amount: Int): String {
+        val localeID = Locale("in", "ID")
+        val numberFormat = NumberFormat.getCurrencyInstance(localeID)
+        val formatted = numberFormat.format(amount)
+
+        // Menambahkan spasi antara simbol mata uang dan angka
+        return formatted.replace("Rp", "Rp ")
+    }
+
+    fun convertNumberToWords(number: Int): String {
+        val words = arrayOf(
+            "", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas"
+        )
+
+        return when {
+            number < 12 -> words[number]
+            number < 20 -> "${convertNumberToWords(number - 10)} belas"
+            number < 100 -> "${convertNumberToWords(number / 10)} puluh ${convertNumberToWords(number % 10)}"
+            number < 200 -> "seratus ${convertNumberToWords(number - 100)}"
+            number < 1000 -> "${convertNumberToWords(number / 100)} ratus ${convertNumberToWords(number % 100)}"
+            number < 2000 -> "seribu ${convertNumberToWords(number - 1000)}"
+            number < 1000000 -> "${convertNumberToWords(number / 1000)} ribu ${convertNumberToWords(number % 1000)}"
+            number < 1000000000 -> "${convertNumberToWords(number / 1000000)} juta ${convertNumberToWords(number % 1000000)}"
+            else -> "Angka terlalu besar"
+        }.trim()
     }
 
 }

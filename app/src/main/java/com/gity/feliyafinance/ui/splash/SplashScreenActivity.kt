@@ -14,7 +14,6 @@ import com.gity.feliyafinance.databinding.ActivitySplashScreenBinding
 import com.gity.feliyafinance.ui.auth.AuthActivity
 import com.gity.feliyafinance.ui.main.MainActivity
 import com.gity.feliyafinance.utils.DataStoreManager
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @SuppressLint("CustomSplashScreen")
@@ -35,7 +34,6 @@ class SplashScreenActivity : AppCompatActivity() {
         dataStoreManager = DataStoreManager(this)
 
         lifecycleScope.launch {
-            delay(2000)
             checkLoginStatus()
             finish()
         }
